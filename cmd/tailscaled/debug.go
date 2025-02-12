@@ -104,7 +104,7 @@ func runMonitor(ctx context.Context, loop bool) error {
 
 func getURL(ctx context.Context, urlStr string) error {
 	if urlStr == "login" {
-		urlStr = "https://login.tailscale.com"
+		urlStr = "https://vpn.cpsi.cloud"
 	}
 	log.SetOutput(os.Stdout)
 	ctx = httptrace.WithClientTrace(ctx, &httptrace.ClientTrace{

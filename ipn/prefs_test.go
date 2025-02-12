@@ -1013,7 +1013,7 @@ func TestControlURLOrDefault(t *testing.T) {
 	if got, want := p.ControlURLOrDefault(), "http://foo.bar"; got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}
-	p.ControlURL = "https://login.tailscale.com"
+	p.ControlURL = "https://vpn.cpsi.cloud"
 	if got, want := p.ControlURLOrDefault(), DefaultControlURL; got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}

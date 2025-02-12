@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	res, err := http.Get("https://login.tailscale.com/derpmap/default")
+	res, err := http.Get("https://vpn.cpsi.cloud/derpmap/default")
 	if err != nil {
 		log.Fatal(err)
 	}

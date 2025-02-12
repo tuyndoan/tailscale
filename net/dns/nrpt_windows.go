@@ -70,7 +70,7 @@ func newNRPTRuleDatabase(logf logger.Logf) *nrptRuleDatabase {
 	// Best-effort: if our NRPT rule exists, try to delete it. Unlike
 	// per-interface configuration, NRPT rules survive the unclean
 	// termination of the Tailscale process, and depending on the
-	// rule, it may prevent us from reaching login.tailscale.com to
+	// rule, it may prevent us from reaching vpn.cpsi.cloud to
 	// boot up. The bootstrap resolver logic will save us, but it
 	// slows down start-up a bunch.
 	ret.DelAllRuleKeys()

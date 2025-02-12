@@ -225,7 +225,7 @@ var upArgsGlobal upArgsT
 // Ex:
 //
 //	{
-//	   "AuthURL": "https://login.tailscale.com/a/0123456789abcdef",
+//	   "AuthURL": "https://vpn.cpsi.cloud/a/0123456789abcdef",
 //	   "QR": "data:image/png;base64,0123...cdef"
 //	   "BackendState": "NeedsLogin"
 //	}
@@ -234,7 +234,7 @@ var upArgsGlobal upArgsT
 //	   "BackendState": "Running"
 //	}
 type upOutputJSON struct {
-	AuthURL      string `json:",omitempty"` // Authentication URL of the form https://login.tailscale.com/a/0123456789
+	AuthURL      string `json:",omitempty"` // Authentication URL of the form https://vpn.cpsi.cloud/a/0123456789
 	QR           string `json:",omitempty"` // a DataURL (base64) PNG of a QR code AuthURL
 	BackendState string `json:",omitempty"` // name of state like Running or NeedsMachineAuth
 	Error        string `json:",omitempty"` // description of an error

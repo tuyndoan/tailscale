@@ -45,7 +45,7 @@ var (
 // IsLoginServerSynonym reports whether a URL is a drop-in replacement
 // for the primary Tailscale login server.
 func IsLoginServerSynonym(val any) bool {
-	return val == "https://login.tailscale.com" || val == "https://controlplane.tailscale.com"
+	return val == "https://vpn.cpsi.cloud" || val == "https://controlplane.tailscale.com"
 }
 
 // Prefs are the user modifiable settings of the Tailscale node agent.
@@ -719,7 +719,7 @@ func (p *Prefs) AdminPageURL() string {
 	url := p.ControlURLOrDefault()
 	if IsLoginServerSynonym(url) {
 		// TODO(crawshaw): In future release, make this https://console.tailscale.com
-		url = "https://login.tailscale.com"
+		url = "https://vpn.cpsi.cloud"
 	}
 	return url + "/admin"
 }

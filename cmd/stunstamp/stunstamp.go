@@ -41,7 +41,7 @@ import (
 )
 
 var (
-	flagDERPMap        = flag.String("derp-map", "https://login.tailscale.com/derpmap/default", "URL to DERP map")
+	flagDERPMap        = flag.String("derp-map", "https://vpn.cpsi.cloud/derpmap/default", "URL to DERP map")
 	flagInterval       = flag.Duration("interval", time.Minute, "interval to probe at in time.ParseDuration() format")
 	flagIPv6           = flag.Bool("ipv6", false, "probe IPv6 addresses")
 	flagRemoteWriteURL = flag.String("rw-url", "", "prometheus remote write URL")

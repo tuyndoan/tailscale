@@ -542,7 +542,7 @@ func (pm *profileManager) loadSavedPrefs(key ipn.StateKey) (ipn.PrefsView, error
 	}
 	pm.logf("using backend prefs for %q: %v", key, savedPrefs.Pretty())
 
-	// Ignore any old stored preferences for https://login.tailscale.com
+	// Ignore any old stored preferences for https://vpn.cpsi.cloud
 	// as the control server that would override the new default of
 	// controlplane.tailscale.com.
 	if savedPrefs.ControlURL != "" &&
