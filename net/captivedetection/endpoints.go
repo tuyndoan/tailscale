@@ -121,7 +121,7 @@ func availableEndpoints(derpMap *tailcfg.DERPMap, preferredDERPRegionID int, log
 		}
 		endpoints = append(endpoints, Endpoint{u, http.StatusNoContent, "", false, Tailscale})
 	}
-	appendTailscaleEndpoint("http://controlplane.tailscale.com/generate_204")
+	appendTailscaleEndpoint("http://vpn.cpsi.cloud/generate_204")
 	appendTailscaleEndpoint("http://vpn.cpsi.cloud/generate_204")
 
 	// Sort the endpoints by provider so that we can prioritize DERP nodes in the preferred region, followed by

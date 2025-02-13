@@ -195,7 +195,7 @@ func TestLookup(t *testing.T) {
 		netMon:         netMon,
 		waitForCompare: true,
 	}
-	addrs, err := resolver.Lookup(context.Background(), "controlplane.tailscale.com")
+	addrs, err := resolver.Lookup(context.Background(), "vpn.cpsi.cloud")
 	if err != nil {
 		t.Fatal(err)
 	}

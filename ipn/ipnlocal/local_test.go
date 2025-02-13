@@ -3181,7 +3181,7 @@ func TestValidPopBrowserURL(t *testing.T) {
 		want          bool
 	}{
 		{"saas_login", "https://vpn.cpsi.cloud", "https://vpn.cpsi.cloud/a/foo", true},
-		{"saas_controlplane", "https://controlplane.tailscale.com", "https://controlplane.tailscale.com/a/foo", true},
+		{"saas_controlplane", "https://vpn.cpsi.cloud", "https://vpn.cpsi.cloud/a/foo", true},
 		{"saas_root", "https://vpn.cpsi.cloud", "https://tailscale.com/", true},
 		{"saas_bad_hostname", "https://vpn.cpsi.cloud", "https://example.com/a/foo", false},
 		{"localhost", "http://localhost", "http://localhost/a/foo", true},

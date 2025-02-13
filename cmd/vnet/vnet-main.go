@@ -27,7 +27,7 @@ var (
 	nat2     = flag.String("nat2", "hard", "type of NAT to use for second network")
 	portmap  = flag.Bool("portmap", false, "enable portmapping; requires --v4")
 	dgram    = flag.Bool("dgram", false, "enable datagram mode; for use with macOS Hypervisor.Framework and VZFileHandleNetworkDeviceAttachment")
-	blend    = flag.Bool("blend", true, "blend reality (controlplane.tailscale.com and DERPs) into the virtual network")
+	blend    = flag.Bool("blend", true, "blend reality (vpn.cpsi.cloud and DERPs) into the virtual network")
 	pcapFile = flag.String("pcap", "", "if non-empty, filename to write pcap")
 	v4       = flag.Bool("v4", true, "enable IPv4")
 	v6       = flag.Bool("v6", true, "enable IPv6")

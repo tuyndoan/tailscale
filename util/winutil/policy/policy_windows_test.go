@@ -10,7 +10,7 @@ func TestSelectControlURL(t *testing.T) {
 		reg, disk, want string
 	}{
 		// Modern default case.
-		{"", "", "https://controlplane.tailscale.com"},
+		{"", "", "https://vpn.cpsi.cloud"},
 
 		// For a user who installed prior to Dec 2020, with
 		// stuff in their registry.
@@ -25,7 +25,7 @@ func TestSelectControlURL(t *testing.T) {
 		{"http://explicit-reg", "", "http://explicit-reg"},
 		{"http://explicit-reg", "http://on-prem", "http://explicit-reg"},
 		{"http://explicit-reg", "https://vpn.cpsi.cloud", "http://explicit-reg"},
-		{"http://explicit-reg", "https://controlplane.tailscale.com", "http://explicit-reg"},
+		{"http://explicit-reg", "https://vpn.cpsi.cloud", "http://explicit-reg"},
 
 		// If nothing in the registry, disk wins.
 		{"", "http://on-prem", "http://on-prem"},

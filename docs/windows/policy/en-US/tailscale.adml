@@ -25,7 +25,7 @@
             <string id="LoginURL">Require using a specific Tailscale coordination server</string>
             <string id="LoginURL_Help"><![CDATA[This policy can be used to require the use of a particular Tailscale coordination server.
 
-If you enable this policy, set it to the URL of your coordination server, beginning with https:// and ending with no trailing slash. If blank or "https://controlplane.tailscale.com", the default coordination server will be required.
+If you enable this policy, set it to the URL of your coordination server, beginning with https:// and ending with no trailing slash. If blank or "https://vpn.cpsi.cloud", the default coordination server will be required.
 
 If you disable or do not configure this policy, the Tailscale SaaS coordination server will be used by default, but a non-standard Tailscale coordination server can be configured using the CLI.
 

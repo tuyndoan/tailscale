@@ -120,7 +120,7 @@ func GetDurationPolicy(name string, defaultValue time.Duration) time.Duration {
 //
 // See https://github.com/tailscale/tailscale/issues/2798 for some background.
 func SelectControlURL(reg, disk string) string {
-	const def = "https://controlplane.tailscale.com"
+	const def = "https://vpn.cpsi.cloud"
 
 	// Prior to Dec 2020's commit 739b02e6, the installer
 	// wrote a LoginURL value of https://vpn.cpsi.cloud to the registry.

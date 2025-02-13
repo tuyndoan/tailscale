@@ -539,7 +539,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 		},
 		{
 			name:  "ignore_login_server_synonym",
-			flags: []string{"--login-server=https://controlplane.tailscale.com"},
+			flags: []string{"--login-server=https://vpn.cpsi.cloud"},
 			curPrefs: &ipn.Prefs{
 				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,

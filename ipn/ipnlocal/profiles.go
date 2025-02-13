@@ -544,7 +544,7 @@ func (pm *profileManager) loadSavedPrefs(key ipn.StateKey) (ipn.PrefsView, error
 
 	// Ignore any old stored preferences for https://vpn.cpsi.cloud
 	// as the control server that would override the new default of
-	// controlplane.tailscale.com.
+	// vpn.cpsi.cloud.
 	if savedPrefs.ControlURL != "" &&
 		savedPrefs.ControlURL != ipn.DefaultControlURL &&
 		ipn.IsLoginServerSynonym(savedPrefs.ControlURL) {

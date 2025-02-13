@@ -47,7 +47,7 @@ func (c *Config) NumNodes() int {
 	return len(c.nodes)
 }
 
-// SetBlendReality sets whether to blend the real controlplane.tailscale.com and
+// SetBlendReality sets whether to blend the real vpn.cpsi.cloud and
 // DERP servers into the virtual network. This is mostly useful for interactive
 // testing when working on natlab.
 func (c *Config) SetBlendReality(v bool) {

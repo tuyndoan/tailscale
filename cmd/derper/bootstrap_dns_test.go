@@ -20,7 +20,7 @@ import (
 )
 
 func BenchmarkHandleBootstrapDNS(b *testing.B) {
-	tstest.Replace(b, bootstrapDNS, "log.tailscale.com,vpn.cpsi.cloud,controlplane.tailscale.com,login.us.tailscale.com")
+	tstest.Replace(b, bootstrapDNS, "log.tailscale.com,vpn.cpsi.cloud,vpn.cpsi.cloud,login.us.tailscale.com")
 	refreshBootstrapDNS()
 	w := new(bitbucketResponseWriter)
 	req, _ := http.NewRequest("GET", "https://localhost/bootstrap-dns?q="+url.QueryEscape("log.tailscale.com"), nil)
@@ -120,11 +120,11 @@ func TestUnpublishedDNSEmptyList(t *testing.T) {
 	unpublishedDNSCache.Store(&dnsEntryMap{
 		IPs: map[string][]net.IP{
 			"log.tailscale.com":          {},
-			"controlplane.tailscale.com": {net.IPv4(1, 2, 3, 4)},
+			"vpn.cpsi.cloud": {net.IPv4(1, 2, 3, 4)},
 		},
 		Percent: map[string]float64{
 			"log.tailscale.com":          1.0,
-			"controlplane.tailscale.com": 1.0,
+			"vpn.cpsi.cloud": 1.0,
 		},
 	})
 
@@ -150,8 +150,8 @@ func TestUnpublishedDNSEmptyList(t *testing.T) {
 	// Verify that we do get a valid response and metric.
 	t.Run("CacheHit", func(t *testing.T) {
 		resetMetrics()
-		ips := getBootstrapDNS(t, "controlplane.tailscale.com")
-		want := map[string][]net.IP{"controlplane.tailscale.com": {net.IPv4(1, 2, 3, 4)}}
+		ips := getBootstrapDNS(t, "vpn.cpsi.cloud")
+		want := map[string][]net.IP{"vpn.cpsi.cloud": {net.IPv4(1, 2, 3, 4)}}
 		if !reflect.DeepEqual(ips, want) {
 			t.Errorf("got ips=%+v; want %+v", ips, want)
 		}
