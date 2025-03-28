@@ -326,7 +326,7 @@ func NewDirect(opts Options) (*Direct, error) {
 		}
 		c.serverNoiseKey = key.NewMachine().Public() // prevent early error before hitting test client
 	}
-	if strings.Contains(opts.ServerURL, "controlplane.tailscale.com") && envknob.Bool("TS_PANIC_IF_HIT_MAIN_CONTROL") {
+	if strings.Contains(opts.ServerURL, "vpn.cpsi.cloud") && envknob.Bool("TS_PANIC_IF_HIT_MAIN_CONTROL") {
 		c.panicOnUse = true
 	}
 	return c, nil
@@ -422,7 +422,7 @@ func (c *Direct) TryLogout(ctx context.Context) error {
 }
 
 func (c *Direct) TryLogin(ctx context.Context, flags LoginFlags) (url string, err error) {
-	if strings.Contains(c.serverURL, "controlplane.tailscale.com") && envknob.Bool("TS_PANIC_IF_HIT_MAIN_CONTROL") {
+	if strings.Contains(c.serverURL, "vpn.cpsi.cloud") && envknob.Bool("TS_PANIC_IF_HIT_MAIN_CONTROL") {
 		panic(fmt.Sprintf("[unexpected] controlclient: TryLogin called on %s; tainted=%v", c.serverURL, c.panicOnUse))
 	}
 	c.logf("[v1] direct.TryLogin(flags=%v)", flags)

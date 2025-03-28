@@ -98,9 +98,9 @@ func ExamplePrefs_ControlURL_setDefaultValue() {
 	fmt.Println("Reset to Default:", v.ControlURL().Value())
 
 	// Output:
-	// Default: https://controlplane.tailscale.com
+	// Default: https://vpn.cpsi.cloud
 	// User Set: https://control.example.com
-	// Reset to Default: https://controlplane.tailscale.com
+	// Reset to Default: https://vpn.cpsi.cloud
 }
 
 func ExamplePrefs_ExitNodeID_setManagedValue() {

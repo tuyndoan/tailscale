@@ -265,7 +265,7 @@ func debugCmd() *ffcli.Command {
 				ShortHelp:  "Debug ts2021 protocol connectivity",
 				FlagSet: (func() *flag.FlagSet {
 					fs := newFlagSet("ts2021")
-					fs.StringVar(&ts2021Args.host, "host", "controlplane.tailscale.com", "hostname of control plane")
+					fs.StringVar(&ts2021Args.host, "host", "vpn.cpsi.cloud", "hostname of control plane")
 					fs.IntVar(&ts2021Args.version, "version", int(tailcfg.CurrentCapabilityVersion), "protocol version")
 					fs.BoolVar(&ts2021Args.verbose, "verbose", false, "be extra verbose")
 					return fs
@@ -884,7 +884,7 @@ func runVia(ctx context.Context, args []string) error {
 }
 
 var ts2021Args struct {
-	host    string // "controlplane.tailscale.com"
+	host    string // "vpn.cpsi.cloud"
 	version int    // 27 or whatever
 	verbose bool
 }

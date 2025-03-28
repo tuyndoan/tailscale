@@ -51,8 +51,8 @@ import (
 
 var (
 	resolveNames = flag.Bool("resolve-names", false, "convert tailscale IP addresses to hostnames; must also specify --api-key and --tailnet-id")
-	apiKey       = flag.String("api-key", "", "API key to query the Tailscale API with; see https://login.tailscale.com/admin/settings/keys")
-	tailnetName  = flag.String("tailnet-name", "", "tailnet domain name to lookup devices in; see https://login.tailscale.com/admin/settings/general")
+	apiKey       = flag.String("api-key", "", "API key to query the Tailscale API with; see https://vpn.cpsi.cloud/admin/settings/keys")
+	tailnetName  = flag.String("tailnet-name", "", "tailnet domain name to lookup devices in; see https://vpn.cpsi.cloud/admin/settings/general")
 )
 
 var namesByAddr map[netip.Addr]string

@@ -275,7 +275,7 @@ func lookup(ctx context.Context, host string, logf logger.Logf, ht *health.Track
 }
 
 // serverName and serverIP of are, say, "derpN.tailscale.com".
-// queryName is the name being sought (e.g. "controlplane.tailscale.com"), passed as hint.
+// queryName is the name being sought (e.g. "vpn.cpsi.cloud"), passed as hint.
 //
 // ht may be nil.
 func bootstrapDNSMap(ctx context.Context, serverName string, serverIP netip.Addr, queryName string, logf logger.Logf, ht *health.Tracker, netMon *netmon.Monitor) (dnsMap, error) {

@@ -104,13 +104,13 @@ func TestPrefsEqual(t *testing.T) {
 		},
 
 		{
-			&Prefs{ControlURL: "https://controlplane.tailscale.com"},
+			&Prefs{ControlURL: "https://vpn.cpsi.cloud"},
 			&Prefs{ControlURL: "https://login.private.co"},
 			false,
 		},
 		{
-			&Prefs{ControlURL: "https://controlplane.tailscale.com"},
-			&Prefs{ControlURL: "https://controlplane.tailscale.com"},
+			&Prefs{ControlURL: "https://vpn.cpsi.cloud"},
+			&Prefs{ControlURL: "https://vpn.cpsi.cloud"},
 			true,
 		},
 
@@ -396,7 +396,7 @@ func TestBasicPrefs(t *testing.T) {
 	tstest.PanicOnLog()
 
 	p := Prefs{
-		ControlURL: "https://controlplane.tailscale.com",
+		ControlURL: "https://vpn.cpsi.cloud",
 	}
 	checkPrefs(t, p)
 }
@@ -410,7 +410,7 @@ func TestPrefsPersist(t *testing.T) {
 		},
 	}
 	p := Prefs{
-		ControlURL: "https://controlplane.tailscale.com",
+		ControlURL: "https://vpn.cpsi.cloud",
 		CorpDNS:    true,
 		Persist:    &c,
 	}
@@ -1013,7 +1013,7 @@ func TestControlURLOrDefault(t *testing.T) {
 	if got, want := p.ControlURLOrDefault(), "http://foo.bar"; got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}
-	p.ControlURL = "https://login.tailscale.com"
+	p.ControlURL = "https://vpn.cpsi.cloud"
 	if got, want := p.ControlURLOrDefault(), DefaultControlURL; got != want {
 		t.Errorf("got %q; want %q", got, want)
 	}

@@ -539,9 +539,9 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 		},
 		{
 			name:  "ignore_login_server_synonym",
-			flags: []string{"--login-server=https://controlplane.tailscale.com"},
+			flags: []string{"--login-server=https://vpn.cpsi.cloud"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
 				NoStatefulFiltering: opt.NewBool(true),
@@ -552,7 +552,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "ignore_login_server_synonym_on_other_change",
 			flags: []string{"--netfilter-mode=off"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             false,
 				NetfilterMode:       preftype.NetfilterOn,
 				NoStatefulFiltering: opt.NewBool(true),
@@ -565,7 +565,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "synology_permit_omit_accept_routes",
 			flags: []string{"--hostname=foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,
 				RouteAll:            true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -581,7 +581,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "not_synology_dont_permit_omit_accept_routes",
 			flags: []string{"--hostname=foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,
 				RouteAll:            true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -595,7 +595,7 @@ func TestCheckForAccidentalSettingReverts(t *testing.T) {
 			name:  "profile_name_ignored_in_up",
 			flags: []string{"--hostname=foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
 				ProfileName:         "foo",
@@ -1072,7 +1072,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "control_synonym",
 			flags: []string{},
 			curPrefs: &ipn.Prefs{
-				ControlURL: "https://login.tailscale.com",
+				ControlURL: "https://vpn.cpsi.cloud",
 				Persist:    &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 			},
 			env:            upCheckEnv{backendState: "Running"},
@@ -1083,7 +1083,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "change_login_server",
 			flags: []string{"--login-server=https://localhost:1000"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -1098,7 +1098,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "change_tags",
 			flags: []string{"--advertise-tags=tag:foo"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -1111,7 +1111,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "explicit_empty_operator",
 			flags: []string{"--operator="},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
 				OperatorUser:        "somebody",
@@ -1132,7 +1132,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "enable_ssh",
 			flags: []string{"--ssh"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -1153,7 +1153,7 @@ func TestUpdatePrefs(t *testing.T) {
 			name:  "disable_ssh",
 			flags: []string{"--ssh=false"},
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				RunSSH:              true,
@@ -1178,7 +1178,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=false"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -1202,7 +1202,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=true"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -1225,7 +1225,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=true", "--accept-risk=lose-ssh"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
@@ -1247,7 +1247,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--ssh=false", "--accept-risk=lose-ssh"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				Persist:             &persist.Persist{UserProfile: tailcfg.UserProfile{LoginName: "crawshaw.github"}},
 				CorpDNS:             true,
 				RunSSH:              true,
@@ -1270,7 +1270,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--force-reauth"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
 				NoStatefulFiltering: opt.NewBool(true),
@@ -1283,7 +1283,7 @@ func TestUpdatePrefs(t *testing.T) {
 			flags:            []string{"--force-reauth", "--accept-risk=lose-ssh"},
 			sshOverTailscale: true,
 			curPrefs: &ipn.Prefs{
-				ControlURL:          "https://login.tailscale.com",
+				ControlURL:          "https://vpn.cpsi.cloud",
 				CorpDNS:             true,
 				NetfilterMode:       preftype.NetfilterOn,
 				NoStatefulFiltering: opt.NewBool(true),

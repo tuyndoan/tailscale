@@ -83,7 +83,7 @@ func setupClientAndACLs() (cleanup func() error, _ error) {
 	credentials := clientcredentials.Config{
 		ClientID:     os.Getenv("TS_API_CLIENT_ID"),
 		ClientSecret: os.Getenv("TS_API_CLIENT_SECRET"),
-		TokenURL:     "https://login.tailscale.com/api/v2/oauth/token",
+		TokenURL:     "https://vpn.cpsi.cloud/api/v2/oauth/token",
 		Scopes:       []string{"auth_keys", "policy_file"},
 	}
 	tsClient = tailscale.NewClient("-", nil)

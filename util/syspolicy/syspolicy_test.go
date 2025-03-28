@@ -605,12 +605,12 @@ func BenchmarkGetString(b *testing.B) {
 	loggerx.SetForTest(b, logger.Discard, logger.Discard)
 	RegisterWellKnownSettingsForTest(b)
 
-	wantControlURL := "https://login.tailscale.com"
+	wantControlURL := "https://vpn.cpsi.cloud"
 	registerSingleSettingStoreForTest(b, source.TestSettingOf(ControlURL, wantControlURL))
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		gotControlURL, _ := GetString(ControlURL, "https://controlplane.tailscale.com")
+		gotControlURL, _ := GetString(ControlURL, "https://vpn.cpsi.cloud")
 		if gotControlURL != wantControlURL {
 			b.Fatalf("got %v; want %v", gotControlURL, wantControlURL)
 		}
@@ -622,22 +622,22 @@ func TestSelectControlURL(t *testing.T) {
 		reg, disk, want string
 	}{
 		// Modern default case.
-		{"", "", "https://controlplane.tailscale.com"},
+		{"", "", "https://vpn.cpsi.cloud"},
 
 		// For a user who installed prior to Dec 2020, with
 		// stuff in their registry.
-		{"https://login.tailscale.com", "", "https://login.tailscale.com"},
+		{"https://vpn.cpsi.cloud", "", "https://vpn.cpsi.cloud"},
 
 		// Ignore pre-Dec'20 LoginURL from installer if prefs
 		// prefs overridden manually to an on-prem control
 		// server.
-		{"https://login.tailscale.com", "http://on-prem", "http://on-prem"},
+		{"https://vpn.cpsi.cloud", "http://on-prem", "http://on-prem"},
 
 		// Something unknown explicitly set in the registry always wins.
 		{"http://explicit-reg", "", "http://explicit-reg"},
 		{"http://explicit-reg", "http://on-prem", "http://explicit-reg"},
-		{"http://explicit-reg", "https://login.tailscale.com", "http://explicit-reg"},
-		{"http://explicit-reg", "https://controlplane.tailscale.com", "http://explicit-reg"},
+		{"http://explicit-reg", "https://vpn.cpsi.cloud", "http://explicit-reg"},
+		{"http://explicit-reg", "https://vpn.cpsi.cloud", "http://explicit-reg"},
 
 		// If nothing in the registry, disk wins.
 		{"", "http://on-prem", "http://on-prem"},

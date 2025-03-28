@@ -34,7 +34,7 @@ func newTSClient(ctx context.Context, clientIDPath, clientSecretPath string) (ts
 	credentials := clientcredentials.Config{
 		ClientID:     string(clientID),
 		ClientSecret: string(clientSecret),
-		TokenURL:     "https://login.tailscale.com/api/v2/oauth/token",
+		TokenURL:     "https://vpn.cpsi.cloud/api/v2/oauth/token",
 	}
 	c := tailscale.NewClient(defaultTailnet, nil)
 	c.UserAgent = "tailscale-k8s-operator"

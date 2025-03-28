@@ -146,7 +146,7 @@ generic "forbidden" error page:
 </html>
 ```
 
-You can get the tailnet name from [the admin panel](https://login.tailscale.com/admin/dns).
+You can get the tailnet name from [the admin panel](https://vpn.cpsi.cloud/admin/dns).
 
 ## Building
 
