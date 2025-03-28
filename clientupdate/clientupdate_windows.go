@@ -197,7 +197,7 @@ func msiUUIDForVersion(ver string) string {
 	if err != nil {
 		track = UnstableTrack
 	}
-	msiURL := fmt.Sprintf("https://pkgs.tailscale.com/%s/tailscale-setup-%s-%s.msi", track, ver, arch)
+	msiURL := fmt.Sprintf("https://pkgs.abpz.net/tailscale/%s/tailscale-setup-%s-%s.msi", track, ver, arch)
 	return "{" + strings.ToUpper(uuid.NewSHA1(uuid.NameSpaceURL, []byte(msiURL)).String()) + "}"
 }
 
