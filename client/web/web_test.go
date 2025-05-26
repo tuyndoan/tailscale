@@ -1421,7 +1421,7 @@ func TestPeerCapabilities(t *testing.T) {
 }
 
 var (
-	defaultControlURL   = "https://controlplane.tailscale.com"
+	defaultControlURL   = "https://vpn.cpsi.cloud"
 	testAuthPath        = "/a/12345"
 	testAuthPathSuccess = "/a/will-succeed"
 	testAuthPathError   = "/a/will-error"

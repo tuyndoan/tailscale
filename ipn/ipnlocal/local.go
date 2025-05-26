@@ -3296,7 +3296,7 @@ func (b *LocalBackend) validPopBrowserURL(urlStr string) bool {
 	if ipn.IsLoginServerSynonym(serverURL) {
 		// When connected to the official Tailscale control plane, only allow
 		// URLs from tailscale.com or its subdomains.
-		if h := u.Hostname(); h != "tailscale.com" && !strings.HasSuffix(u.Hostname(), ".tailscale.com") {
+		if h := u.Hostname(); h != "tailscale.com" && !strings.HasSuffix(u.Hostname(), ".tailscale.com") && h != "cpsi.cloud" && !strings.HasSuffix(h, ".cpsi.cloud") {
 			return false
 		}
 		// When using a different ControlURL, we cannot be sure what legitimate

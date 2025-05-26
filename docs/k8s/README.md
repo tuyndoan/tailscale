@@ -11,7 +11,7 @@ If you want a higher level of automation, easier configuration, automated cleanu
 ### Setup
 
 1. (Optional) Create the following secret which will automate login.<br>
-   You will need to get an [auth key](https://tailscale.com/kb/1085/auth-keys/) from [Tailscale Admin Console](https://login.tailscale.com/admin/authkeys).<br>
+   You will need to get an [auth key](https://tailscale.com/kb/1085/auth-keys/) from [Tailscale Admin Console](https://vpn.cpsi.cloud/admin/authkeys).<br>
    If you don't provide the key, you can still authenticate using the url in the logs.
 
    ```yaml
@@ -142,7 +142,7 @@ the entire Kubernetes cluster network (assuming NetworkPolicies allow) over Tail
    kubectl logs subnet-router
    ```
 
-1. In the [Tailscale admin console](https://login.tailscale.com/admin/machines), ensure that the
+1. In the [Tailscale admin console](https://vpn.cpsi.cloud/admin/machines), ensure that the
    routes for the subnet-router are enabled.
 
 1. Make sure that any client you want to connect from has `--accept-routes` enabled.

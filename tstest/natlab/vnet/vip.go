@@ -12,7 +12,7 @@ var vips = map[string]virtualIP{} // DNS name => details
 
 var (
 	fakeDNS               = newVIP("dns", "4.11.4.11", "2411::411")
-	fakeProxyControlplane = newVIP("controlplane.tailscale.com", 1)
+	fakeProxyControlplane = newVIP("vpn.cpsi.cloud", 1)
 	fakeTestAgent         = newVIP("test-driver.tailscale", 2)
 	fakeControl           = newVIP("control.tailscale", 3)
 	fakeDERP1             = newVIP("derp1.tailscale", "33.4.0.1") // 3340=DERP; 1=derp 1

@@ -376,7 +376,7 @@ func (n *network) acceptTCP(r *tcp.ForwarderRequest) {
 	if n.s.derpIPs.Contains(destIP) {
 		targetDial = destIP.String() + ":" + strconv.Itoa(int(destPort))
 	} else if fakeProxyControlplane.Match(destIP) {
-		targetDial = "controlplane.tailscale.com:" + strconv.Itoa(int(destPort))
+		targetDial = "vpn.cpsi.cloud:" + strconv.Itoa(int(destPort))
 	}
 	if targetDial != "" {
 		c, err := net.Dial("tcp", targetDial)
